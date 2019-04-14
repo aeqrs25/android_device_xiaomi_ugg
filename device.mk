@@ -145,9 +145,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:system/etc/sound_trigger_platform_info.xml \
     $(LOCAL_PATH)/audio/usb_audio_policy_configuration.xml:system/etc/usb_audio_policy_configuration.xml
 
-# Camera
+# Google Camera
 PRODUCT_PACKAGES += \
-    Snap
+    GCam
 
 # Display
 PRODUCT_PACKAGES += \
