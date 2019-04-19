@@ -192,6 +192,7 @@ lib/libmorpho_memory_allocator.so
 lib/libmorpho_panorama.so
 lib/libqomx_core.so
 lib/libsigchain.so
+lib/libMiCameraHal.so
 lib64/libmorpho_memory_allocator.so
 lib64/libmorpho_panorama.so
 lib64/libsigchain.so
@@ -2036,7 +2037,6 @@ vendor/lib/libchromatix_s5k3m2xx_video_4k.so
 vendor/lib/libchromatix_s5k3m2xx_zsl_preview_ad5816g.so
 vendor/lib/libchromatix_s5k3m2xx_zsl_video_ad5816g.so
 
-
 # Camera configs
 etc/camera/camera_config.xml
 etc/camera/csidtg_camera.xml
@@ -2149,22 +2149,6 @@ vendor/lib/libmmcamera_isp_sub_module.so
 vendor/lib/libmmcamera_isp_template.so
 vendor/lib/libmmcamera_isp_wb40.so
 vendor/lib/lib_lowlight.so
-
-# kernel modules
-
-lib/modules/ansi_cprng.ko
-lib/modules/backlight.ko
-lib/modules/br_netfilter.ko
-lib/modules/evbug.ko
-lib/modules/generic_bl.ko
-lib/modules/lcd.ko
-lib/modules/mmc_block_test.ko
-lib/modules/mmc_test.ko
-lib/modules/rdbg.ko
-lib/modules/spidev.ko
-lib/modules/test-iosched.ko
-lib/modules/ufs_test.ko
-lib/modules/wil6210.ko
 
 # Charger
 bin/hvdcp_opti
@@ -2451,6 +2435,28 @@ vendor/lib64/libMpeg4SwEncoder.so
 vendor/media/LMspeed_508.emd
 vendor/media/PFFprec_600.emd
 
+# MM Modules
+vendor/lib/libmmhttpstack.so
+vendor/lib/libmmparser.so
+vendor/lib/libmmparser_lite.so
+vendor/lib/libmmrtpdecoder.so
+vendor/lib/libmmrtpencoder.so
+vendor/lib/libmmwfdinterface.so
+vendor/lib/libmmwfdsinkinterface.so
+vendor/lib/libmmwfdsrcinterface.so
+vendor/lib64/libmmhttpstack.so
+vendor/lib64/libmmparser.so
+vendor/lib64/libmmparser_lite.so
+vendor/lib64/libmmrtpdecoder.so
+vendor/lib64/libmmrtpencoder.so
+vendor/lib64/libmmwfdinterface.so
+vendor/lib64/libmmwfdsinkinterface.so
+vendor/lib64/libmmwfdsrcinterface.so
+vendor/lib64/libpvr.so
+vendor/lib64/librmp.so
+vendor/lib64/libSampleAuthJNI.so
+vendor/lib64/libSampleExtAuthJNI.so
+
 # MMI
 vendor/lib/libmmi.so
 vendor/lib/libmmiipstreammmihttp.so
@@ -2505,6 +2511,33 @@ vendor/lib64/mmi_touch.so
 vendor/lib64/mmi_vibrator.so
 vendor/lib64/mmi_wifi.so
 
+# Fingerprint sensor
+lib64/hw/fingerprint.goodix.default.so
+lib64/hw/fingerprint.msm8937.so
+lib64/lib_fpc_tac_shared.so
+lib64/libgf_algo.so
+lib64/libgf_ca.so
+lib64/libgf_hal.so
+lib/lib_fpc_tac_shared.so
+
+# Fingerprint Firmware
+etc/firmware/fpctzappfingerprint.b00
+etc/firmware/fpctzappfingerprint.b01
+etc/firmware/fpctzappfingerprint.b02
+etc/firmware/fpctzappfingerprint.b03
+etc/firmware/fpctzappfingerprint.b04
+etc/firmware/fpctzappfingerprint.b05
+etc/firmware/fpctzappfingerprint.b06
+etc/firmware/fpctzappfingerprint.mdt
+etc/firmware/goodixfp.b00
+etc/firmware/goodixfp.b01
+etc/firmware/goodixfp.b02
+etc/firmware/goodixfp.b03
+etc/firmware/goodixfp.b04
+etc/firmware/goodixfp.b05
+etc/firmware/goodixfp.b06
+etc/firmware/goodixfp.mdt
+
 # Modem
 vendor/lib/libwms.so
 vendor/lib64/libwms.so
@@ -2515,9 +2548,6 @@ vendor/lib/libconnctrl.so
 vendor/lib/libQtiTether.so
 vendor/lib64/libconnctrl.so
 vendor/lib64/libQtiTether.so
-
-# Display calibration
-
 
 # Perf
 bin/iop
@@ -2663,6 +2693,7 @@ vendor/lib64/libimscamera_jni.so
 vendor/lib64/libimsmedia_jni.so
 vendor/lib64/librcc.so
 vendor/lib64/libvoice-svc.so
+vendor/qcril.db
 
 # FM Radio
 bin/fm_qsoc_patches
@@ -2683,7 +2714,7 @@ vendor/lib64/sensors.ssc.so
 # Subsystem restart
 bin/ssr_diag
 
-#SCVE
+# SCVE
 vendor/lib/libscveBlobDescriptor.so
 vendor/lib/libscveBlobDescriptor_stub.so
 vendor/lib/libscveCleverCapture.so
@@ -2748,14 +2779,12 @@ vendor/lib/libTimeService.so
 -vendor/lib64/libtime_genoff.so
 vendor/lib64/libTimeService.so
 
-# vendor apps
-
+# Color Service
 -vendor/app/CABLService/CABLService.apk
 -vendor/app/colorservice/colorservice.apk
 -vendor/app/SVIService/SVIService.apk
 
-
-#WFD
+# WFD
 bin/wfdservice
 vendor/lib/libwfdavenhancements.so
 vendor/lib/libwfdcommonutils.so
@@ -2792,7 +2821,7 @@ vendor/lib64/libwfduibcsrcinterface.so
 etc/firmware/ice40.bin
 
 # Widevine - from onePlus3
-vendor/lib/mediadrm/libwvdrmengine.so|70419ce1f8eb6bd3aa36234f8d7e8003569efc9c
+vendor/lib/mediadrm/libwvdrmengine.so
 vendor/lib/qcdrm/playready/lib/drm/libdrmprplugin_customer.so
 vendor/lib/qcdrm/playready/lib/libprdrmdecrypt_customer.so
 vendor/lib/qcdrm/playready/lib/libtzplayready_customer.so
@@ -2806,44 +2835,13 @@ vendor/lib64/libmdtp_crypto.so
 
 # Wi-Fi
 bin/cnss-daemon
-etc/firmware/wlan/prima/WCNSS_cfg.dat
-etc/firmware/wlan/prima/WCNSS_qcom_wlan_nv.bin
-etc/firmware/wlan/prima/WCNSS_wlan_dictionary.dat
 bin/cnss_diag
 bin/wcnss_service
 bin/fstman
-lib/modules/pronto/pronto_wlan.ko
 
-# Fingerprint
-etc/firmware/fpctzappfingerprint.b00
-etc/firmware/fpctzappfingerprint.b01
-etc/firmware/fpctzappfingerprint.b02
-etc/firmware/fpctzappfingerprint.b03
-etc/firmware/fpctzappfingerprint.b04
-etc/firmware/fpctzappfingerprint.b05
-etc/firmware/fpctzappfingerprint.b06
-etc/firmware/fpctzappfingerprint.mdt
-etc/firmware/goodixfp.b00
-etc/firmware/goodixfp.b01
-etc/firmware/goodixfp.b02
-etc/firmware/goodixfp.b03
-etc/firmware/goodixfp.b04
-etc/firmware/goodixfp.b05
-etc/firmware/goodixfp.b06
-etc/firmware/goodixfp.mdt
-
-# To-Do
 vendor/lib/libaudioparsers.so
 vendor/lib/libflash_gpio.so
 vendor/lib/libjni_dualcamera.so
-vendor/lib/libmmhttpstack.so
-vendor/lib/libmmparser.so
-vendor/lib/libmmparser_lite.so
-vendor/lib/libmmrtpdecoder.so
-vendor/lib/libmmrtpencoder.so
-vendor/lib/libmmwfdinterface.so
-vendor/lib/libmmwfdsinkinterface.so
-vendor/lib/libmmwfdsrcinterface.so
 vendor/lib/libpvr.so
 vendor/lib/librmp.so
 vendor/lib/librpmb.so
@@ -2855,16 +2853,3 @@ vendor/lib64/libExtendedExtractor.so
 vendor/lib64/libFileMux.so
 vendor/lib64/libSubSystemShutdown.so
 vendor/lib64/libaudioparsers.so
-vendor/lib64/libmmhttpstack.so
-vendor/lib64/libmmparser.so
-vendor/lib64/libmmparser_lite.so
-vendor/lib64/libmmrtpdecoder.so
-vendor/lib64/libmmrtpencoder.so
-vendor/lib64/libmmwfdinterface.so
-vendor/lib64/libmmwfdsinkinterface.so
-vendor/lib64/libmmwfdsrcinterface.so
-vendor/lib64/libpvr.so
-vendor/lib64/librmp.so
-vendor/lib64/libSampleAuthJNI.so
-vendor/lib64/libSampleExtAuthJNI.so
-

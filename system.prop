@@ -1,5 +1,5 @@
 #
-# system.prop for ugglite
+# system.prop for ugg
 #
 
 # Audio
@@ -39,6 +39,8 @@ persist.speaker.prot.enable=false
 qcom.hw.aac.encoder=true
 flac.sw.decoder.24bit.support=true
 mm.enable.qcom_parser=196495
+use.qti.sw.alac.decoder=true
+use.qti.sw.ape.decoder=true
 
 # dirac effect to speaker
 persist.audio.dirac.speaker=true
@@ -46,9 +48,18 @@ persist.audio.dirac.speaker=true
 # system prop for UBWC
 video.disable.ubwc=1
 
+# Autobrightness
+sys.autobrightness_optimize=true
+persist.power.useautobrightadj=true
+
 # Bluetooth
 bluetooth.hfp.client=1
 qcom.bluetooth.soc=smd
+
+# B service
+ro.sys.fw.bservice_enable=true
+ro.sys.fw.bservice_limit=5
+ro.sys.fw.bservice_age=5000
 
 # Camera
 camera.display.umax=1920x1080
@@ -62,20 +73,13 @@ camera2.portability.force_api=1
 ro.def.camera.video.quality=100
 ro.def.camera.bright.main=middle
 ro.camcorder.videoModes=true
-persist.camera.HAL3.enabled=0
+persist.camera.HAL3.enabled=1
 
-# enable new autobrightness algo
-sys.autobrightness_optimize=true
-persist.power.useautobrightadj=true
-
-#Simulate sdcard on /data/media
+# Simulate sdcard on /data/media
 persist.fuse_sdcard=true
 
-#property for game detection feature
+# Game Detection
 debug.enable.gamed=0
-
-#property to enable narrow search range for video encoding
-vidc.enc.narrow.searchrange=1
 
 # Cne
 persist.cne.feature=1
@@ -103,12 +107,7 @@ sys.display-size=3840x2160
 # DRM
 drm.service.enabled=true
 
-#Enable B service adj transition by default
-ro.sys.fw.bservice_enable=true
-ro.sys.fw.bservice_limit=5
-ro.sys.fw.bservice_age=5000
-
-# disable iwlan
+# iwlan
 persist.data.iwlan.enable=false
 
 # Fm
@@ -134,9 +133,9 @@ vidc.dec.downscalar_height=1088
 vidc.disable.split.mode=1
 vidc.enc.disable.pq=true
 
-#enable software decoders for ALAC and APE.
-use.qti.sw.alac.decoder=true
-use.qti.sw.ape.decoder=true
+# Min/Max CPU
+ro.core_ctl_min_cpu=4
+ro.core_ctl_max_cpu=8
 
 # Perf
 ro.vendor.gt_library=libqti-gt.so
@@ -193,24 +192,17 @@ persist.radio.hw_mbn_update=0
 service.qti.ims.enabled=1
 telephony.lteOnCdmaDevice=1
 
+# Swap disk
+ro.config.swap=true
+
 # Time Services
 persist.timed.enable=true
 
 # Tcp
 net.tcp.2g_init_rwnd=10
 
-#property to enable fingerprint
-persist.qfp=false
-
-#min/max cpu in core control
-ro.core_ctl_min_cpu=2
-ro.core_ctl_max_cpu=4
-
-#set device emmc size
-ro.emmc_size=16G
-
-#property to enable DS2 dap
-audio.dolby.ds2.enabled=true
+# Emmc
+ro.emmc_size=32G
 
 # Trim properties
 ro.sys.fw.use_trim_settings=true
@@ -219,12 +211,12 @@ ro.sys.fw.trim_empty_percent=100
 ro.sys.fw.trim_cache_percent=100
 ro.sys.fw.trim_enable_memory=2147483648
 
+# Video Encoding
+vidc.enc.narrow.searchrange=1
+
 # Wifi
 wifi.interface=wlan0
 wifi.tethering.interface=wlan0
 
-# Create zram disk
+# Zram Disk
 ro.config.zram=true
-
-# Create Swap disk, if below sys-prop enabled & also if device has lower (< 1 GB) RAM
-ro.config.swap=true
